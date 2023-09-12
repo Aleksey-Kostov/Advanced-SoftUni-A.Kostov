@@ -8,4 +8,3 @@ for char in range(len(algebraic_expression)):
         start_index = stack_parentheses.pop()
         end_index = char + 1
         print(algebraic_expression[start_index:end_index])
-
