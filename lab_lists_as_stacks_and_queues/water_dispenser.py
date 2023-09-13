@@ -14,12 +14,11 @@ while get_water[0] != "End":
     if len(get_water) != 1:
         quantity_of_water += int(get_water[1])
     else:
+        people_get_water = name_of_people_deq.popleft()
         if int(get_water[0]) <= quantity_of_water:
             quantity_of_water -= int(get_water[0])
-            people_get_water = name_of_people_deq.popleft()
             print(f"{people_get_water} got water")
         else:
-            people_get_water = name_of_people_deq.popleft()
             print(f"{people_get_water} must wait")
     get_water = input().split()
 
