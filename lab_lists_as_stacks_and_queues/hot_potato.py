@@ -9,4 +9,4 @@ while len(kids_name) > 1:
     removed_kid = kids_name.popleft()
     print(f"Removed {removed_kid}")
 
-print(f"Last is {kids_name[0]}")
+print(f"Last is {kids_name.popleft()}")
