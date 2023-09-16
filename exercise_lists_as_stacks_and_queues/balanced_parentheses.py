@@ -1,20 +1,24 @@
 from collections import deque
 
-parentheses_deque = deque([x for x in input()])
-range_parentheses = len(parentheses_deque) // 2
-parentheses = ["()", "[]", "{}"]
+parentheses_deque = deque(input())
+opening_parentheses = "([{"
+closing_parentheses = ")]}"
+counter = 0
 
-for i in range(len(parentheses_deque)):
-    a = parentheses_deque[i]
-    b = parentheses_deque[i + 1]
-    if parentheses_deque[i] + parentheses_deque[i + 1] not in parentheses:
-        parentheses_deque.rotate(-1)
+while parentheses_deque and counter < len(parentheses_deque):
+    if parentheses_deque[0] not in opening_parentheses:
+        break
+    index = opening_parentheses.index(parentheses_deque[0])
+    if parentheses_deque[1] == closing_parentheses[index]:
+        parentheses_deque.popleft()
+        parentheses_deque.popleft()
+        parentheses_deque.rotate(counter)
+        counter = 0
     else:
-        parentheses_deque.popleft()
-        parentheses_deque.popleft()
-        parentheses_deque.rotate(1)
+        parentheses_deque.rotate(-1)
+        counter += 1
 
 if parentheses_deque:
-    print("YES")
-else:
     print("NO")
+else:
+    print("YES")
