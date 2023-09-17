@@ -8,5 +8,4 @@ for student in range(num_of_students):
     student_dict[name].append(float(grade))
 
 for key, value in student_dict.items():
-    print(f"{key} -> {*value, }")
-    
+    print(f"{key} ->", *value)
