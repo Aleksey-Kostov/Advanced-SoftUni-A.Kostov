@@ -4,6 +4,7 @@ type_of_robots = input().split(";")
 robots_deq = deque()
 product_list = []
 all_robots_deque = deque()
+current_seconds = 0
 
 for robot in type_of_robots:
     if robot not in robots_deq:
@@ -26,9 +27,10 @@ for prod in range(len(product_list)):
     else:
         robot_name = all_robots_deque[-1][0]
         robot_time = all_robots_deque[-1][1]
-        all_robots_deque.append([robot_name, robot_time])
+        current_seconds = int(robot_time) + int(robot_time)
+        all_robots_deque.append([robot_name, current_seconds])
 
 for detail in product_list:
     current_robot = all_robots_deque.popleft()[0]
-    current_seconds = f"{(int(seconds) + 1):.0f}"
-    print(f"{current_robot} - {detail} {hours}:{minutes}:{current_seconds}")
+    seconds = (int(seconds) + 1)
+    print(f"{current_robot} - {detail} [{int(hours):02d}:{int(minutes):02d}:{seconds:02d}]")
