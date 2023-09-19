@@ -1,36 +1,36 @@
 from collections import deque
 
-type_of_robots = input().split(";")
-robots_deq = deque()
-product_list = []
-all_robots_deque = deque()
-current_seconds = 0
+products = deque()
+robots = []
+robots_data = input().split(";")
 
-for robot in type_of_robots:
-    if robot not in robots_deq:
-        robots_deq.append(robot)
+hours, minutes, seconds = [int(x) for x in input().split(":")]
+start_time_seconds = hours * 3600 + minutes * 60 + seconds
 
+for robot in robots_data:
+    robot_name, processing_time = robot.split("-")
+    busy_until_time = 0
+    robots.append({"name": robot_name, "data": [int(processing_time), busy_until_time]})
 
-hours, minutes, seconds = input().split(":")
-
-product = input()
-while product != "End":
-    product_list.append(product)
+while True:
     product = input()
+    if product == "End":
+        break
+    products.append(product)
 
-for prod in range(len(product_list)):
-    if robots_deq:
-        robot_name = robots_deq.popleft().split(", ")
-        name_robot, time_robot = robot_name[0].split("-")
-        if name_robot not in all_robots_deque:
-            all_robots_deque.append([name_robot, time_robot])
-    else:
-        robot_name = all_robots_deque[-1][0]
-        robot_time = all_robots_deque[-1][1]
-        current_seconds = int(robot_time) + int(robot_time)
-        all_robots_deque.append([robot_name, current_seconds])
-
-for detail in product_list:
-    current_robot = all_robots_deque.popleft()[0]
-    seconds = (int(seconds) + 1)
-    print(f"{current_robot} - {detail} [{int(hours):02d}:{int(minutes):02d}:{seconds:02d}]")
+while products:
+    start_time_seconds += 1
+    current_product = products.popleft()
+    is_taken = False
+    for robot in robots:
+        if robot["data"][1] <= start_time_seconds:
+            robot["data"][1] = start_time_seconds + robot["data"][0]
+            h = start_time_seconds // 3600
+            m = (start_time_seconds % 3600) // 60
+            s = (start_time_seconds % 3600) % 60
+            h %= 24
+            print(f"{robot['name']} - {current_product} [{h:02d}:{m:02d}:{s:02d}]")
+            is_taken = True
+            break
+    if not is_taken:
+        products.append(current_product)
