@@ -22,12 +22,9 @@ while materials and magic:
     elif last_materials == 0:
         magic.appendleft(first_magic)
     if current_data in data:
-        counter += 1
         if data[current_data][::] not in product_dict:
-            product_dict[data[current_data][::]] = counter
-        else:
-            product_dict[data[current_data][::]] += counter
-        continue
+            product_dict[data[current_data][::]] = 0
+        product_dict[data[current_data][::]] += 1
     elif current_data > 0:
         materials.append(last_materials + 15)
     elif current_data < 0:
@@ -43,5 +40,6 @@ if materials:
     print(f"Materials left: {', '.join([str(material) for material in materials[::-1]])}")
 if magic:
     print(f"Magic left: {', '.join(str(x) for x in magic)}")
-for key, value in product_dict.items():
-    print(f"{key}: {value}")
+for key, value in sorted(product_dict.items()):
+    if value > 0:
+        print(f"{key}: {value}")
