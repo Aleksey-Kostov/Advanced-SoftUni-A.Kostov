@@ -11,4 +11,3 @@ for j in range(col):
     sum_matrix.append(current_matrix)
 
 print(*sum_matrix, sep="\n")
-
