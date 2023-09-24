@@ -10,4 +10,5 @@ for j in range(col):
         current_matrix += (int(matrix[i][j]))
     sum_matrix.append(current_matrix)
 
-print([x for x in sum_matrix])
+print(*sum_matrix, sep="\n")
+
