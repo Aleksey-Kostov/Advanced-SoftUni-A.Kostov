@@ -1,6 +1,7 @@
 n = int(input())
 
 matrix = []
+alice = []
 
 for row in range(n):
     matrix.append(input().split())
@@ -18,7 +19,7 @@ while tea_bags < 10:
     row = alice[0] + move[0]
     col = alice[1] + move[1]
 
-    if row < 0 or row >= n and col < 0 or col >= n:
+    if row < 0 or row >= n or col < 0 or col >= n:
         break
     if matrix[row][col] == "R":
         matrix[row][col] = "*"
