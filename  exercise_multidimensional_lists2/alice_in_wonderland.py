@@ -20,15 +20,15 @@ while tea_bags < 10:
 
     if row < 0 or row >= n and col < 0 or col >= n:
         break
-    if matrix[row][col] == "A":
+    if matrix[row][col] == "R":
         matrix[row][col] = "*"
         break
-    if matrix[row][col] not in "*":
+    if matrix[row][col] not in "*.":
         tea_bags += int(matrix[row][col])
     matrix[row][col] = "*"
     alice = [row, col]
 
-if tea_bags:
+if tea_bags >= 10:
     print("She did it! She went to the party.")
 else:
     print("Alice didn't make it to the tea party.")
