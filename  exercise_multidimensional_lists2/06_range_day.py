@@ -10,7 +10,7 @@ for row in range(5):
         elif matrix[row][col] == "x":
             targets += 1
 
-directions = {'left': (0, -1), 'right': (0, 1), 'up': (-1, 0), 'down': (1, 0)}
+directions_dict = {"left": [0, -1], "right": (0, 1), "up": (-1, 0), "down": (1, 0)}
 targets_down = []
 
 n = int(input())
@@ -18,30 +18,29 @@ n = int(input())
 for _ in range(n):
     command = input().split()
     if command[0] == 'shoot':
-        s = command[1]
-        r = my_position[0] + directions[command[1]][0]
-        c = my_position[1] + directions[command[1]][1]
+        r = my_position[0] + directions_dict[command[1]][0]
+        c = my_position[1] + directions_dict[command[1]][1]
         while 0 <= r < 5 and 0 <= c < 5:
             if matrix[r][c] == "x":
                 matrix[r][c] = "."
                 targets -= 1
                 targets_down.append([r, c])
                 break
-            r += directions[command[1]][0]
-            c += directions[command[1]][1]
+            r += directions_dict[command[1]][0]
+            c += directions_dict[command[1]][1]
         if targets == 0:
             print(f"Training completed! All {len(targets_down)} targets hit.")
             break
     elif command[0] == "move":
         steps = int(command[2])
-        directions = command[1]
-        if directions == "up":
+        direction = command[1]
+        if direction == "up":
             r = my_position[0] - steps
             c = my_position[1]
-        elif directions == "down":
+        elif direction == "down":
             r = my_position[0] + steps
             c = my_position[1]
-        elif directions == "left":
+        elif direction == "left":
             r = my_position[0]
             c = my_position[1] - steps
         else:
