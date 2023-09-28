@@ -17,7 +17,7 @@ for i in range(n_size_neighborhood):
             nice_kid.append([i, j])
 
 
-directions_dict = {"left": [0, -1], "right": (0, 1), "up": (-1, 0), "down": (1, 0)}
+directions_dict = {"left": (0, -1), "right": (0, 1), "up": (-1, 0), "down": (1, 0)}
 
 while True:
     command = input()
