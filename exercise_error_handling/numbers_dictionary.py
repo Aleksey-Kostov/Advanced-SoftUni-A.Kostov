@@ -4,9 +4,10 @@ while line != "Search":
     number_as_string = line
     try:
         number = int(input())
-        numbers_dictionary[number_as_string] = number
     except ValueError:
         print('The variable number must be an integer')
+    else:
+        numbers_dictionary[number_as_string] = number
     line = input()
 line = input()
 while line != "Remove":
