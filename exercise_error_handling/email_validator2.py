@@ -30,3 +30,4 @@ while True:
         raise InvalidDomainError("Domain must be one of the following: .com, .bg, .org, .net")
 
     print("Email is valid")
+
