@@ -2,7 +2,7 @@ import os
 
 file = {}
 
-directory = input()
+directory = os.path.abspath(input())
 
 for element in os.listdir(directory):
     f = os.path.join(directory, element)

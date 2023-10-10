@@ -2,7 +2,7 @@ import os
 
 files = {}
 
-directory = input()
+directory = os.path.abspath(input())
 
 
 def get_file(folder, level):
