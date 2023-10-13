@@ -18,6 +18,17 @@ while substances_sequence and check_result:
         if substances_number != 0:
             substances_sequence.append(substances_number)
 
-print(tools_sequence)
-print(check_result)
+if not check_result:
+    print("Harry found an ostracon, which is dated to the 6th century BCE.")
+else:
+    print("Harry is lost in the temple. Oblivion awaits him.")
 
+if tools_sequence:
+    tools_sequence = [str(x) for x in tools_sequence]
+    print(f"Tools: " + ', '.join(tools_sequence))
+if substances_sequence:
+    substances_sequence = [str(x) for x in substances_sequence]
+    print(f"Substances: " + ", ".join(substances_sequence))
+if check_result:
+    check_result = [str(x) for x in check_result]
+    print(f"Challenges: " + ", ".join(check_result))
