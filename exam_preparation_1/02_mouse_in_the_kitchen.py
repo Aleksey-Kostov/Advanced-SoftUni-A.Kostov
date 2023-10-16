@@ -54,5 +54,3 @@ while command != "danger":
     if command == "danger":
         print("Mouse will come back later!")
         [print("".join(row)) for row in matrix]
-
-
