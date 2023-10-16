@@ -25,7 +25,6 @@ while command != "danger":
     c = mouse_coord[1] + mapper[command][1]
     if not is_inside(r, c, row, col):
         print("No more cheese for tonight!")
-        [print("".join(row)) for row in matrix]
         break
     matrix[mouse_coord[0]][mouse_coord[1]] = "*"
     mouse_coord = [r, c]
@@ -35,7 +34,6 @@ while command != "danger":
         if len(cheese) == 0:
             matrix[r][c] = "M"
             print("Happy mouse! All the cheese is eaten, good night!")
-            [print("".join(row)) for row in matrix]
             break
     elif matrix[r][c] == "*":
         matrix[r][c] = "M"
@@ -48,9 +46,9 @@ while command != "danger":
         matrix[r][c] = "M"
         mouse_coord = [r, c]
         print("Mouse is trapped!")
-        [print("".join(row)) for row in matrix]
         break
     command = input()
     if command == "danger":
         print("Mouse will come back later!")
-        [print("".join(row)) for row in matrix]
+
+[print("".join(row)) for row in matrix]
