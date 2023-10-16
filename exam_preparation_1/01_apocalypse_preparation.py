@@ -39,4 +39,3 @@ if textiles:
     print(f"Textiles left: {', '.join(str(x) for x in textiles)}")
 if medicament:
     print(f"Medicaments left: {', '.join(str(x) for x in reversed(medicament))}")
-
