@@ -18,6 +18,7 @@ while True:
     command = input()
     if command == "End":
         matrix[position[0]][position[1]] = "C"
+        print(f"Racing car {number_car} DNF.")
         break
     r = position[0] + mapper[command][0]
     c = position[1] + mapper[command][1]
@@ -33,7 +34,8 @@ while True:
     elif matrix[r][c] == "F":
         range_km += 10
         matrix[r][c] = "C"
+        print(f"Racing car {number_car} finished the stage!")
         break
 
-print(range_km)
-[print(" ".join(row)) for row in matrix]
+print(f"Distance covered {range_km} km.")
+[print("".join(row)) for row in matrix]
