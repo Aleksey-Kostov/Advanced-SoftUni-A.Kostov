@@ -31,6 +31,8 @@ while command != "Finish":
             touched_opponent += 1
             moves += 1
             matrix[r][c] = "B"
+            if (r, c) in opponent_position:
+                opponent_position.remove((r, c))
             r = position[0] - mapper[command][0]
             c = position[1] - mapper[command][1]
             matrix[r][c] = "-"
@@ -48,8 +50,9 @@ while command != "Finish":
         r = position[0] - mapper[command][0]
         c = position[1] - mapper[command][1]
         position = [r, c]
+    if not opponent_position:
+        break
     command = input()
 
-print(moves)
-print(touched_opponent)
-[print("".join(row)) for row in matrix]
+print("Game over!")
+print(f"Touched opponents: {touched_opponent} Moves made: {moves}")
