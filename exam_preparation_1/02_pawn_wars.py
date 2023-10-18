@@ -27,10 +27,18 @@ def move(coord_white, coord_black, current_maper, matrix_input, matrix_chess):
             return f"Game over! White win, capture on {matrix_chess[r_w][c_w]}."
         if matrix_input[r_b][c_b] == "w":
             return f"Game over! Black win, capture on {matrix_chess[r_b][c_b]}."
-    r_w = coord_white[0][0] + 0
-    r_b = coord_black[0][0] + 1
-    c_w = coord_white[0][1] + 0
-    c_b = coord_white[0][1] + 1
+    return False
+
+
+for i in range(n):
+    if not move(coord_w, coord_b, mapper, matrix, chessboard_matrix):
+        r_white = coord_w[0][0] + 0
+        r_black = coord_b[0][0] + 0
+        c_white = coord_w[0][1] + 1
+        c_black = coord_w[0][1] - 1
+        coord_w = [(r_white, c_white)]
+        coord_b = [(r_black, c_black)]
+
 
 
 print(move(coord_w, coord_b, mapper, matrix, chessboard_matrix))
