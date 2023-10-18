@@ -5,7 +5,6 @@ matrix = []
 exit_coord = []
 trap_coord = []
 wall_coord = []
-coord_tuple = tuple
 counter = 0
 player_1_wall = False
 player_2_wall = False
