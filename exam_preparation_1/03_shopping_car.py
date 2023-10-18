@@ -29,12 +29,3 @@ def shopping_cart(*args):
         for j in sort_result:
             result += f" - {j}\n"
     return result
-
-
-print(shopping_cart(
-    'Stop',
-    ('Pizza', 'ham'),
-    ('Pizza', 'mushrooms'),
-))
-
-
