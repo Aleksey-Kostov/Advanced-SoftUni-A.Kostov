@@ -2,6 +2,10 @@ n = 8
 matrix = []
 coord_w = []
 coord_b = []
+counter_white = 0
+counter_black = 0
+win_white = False
+win_black = False
 chessboard_matrix = [[chr(97 + j) + str(n - i) for j in range(n)] for i in range(n)]
 
 for i in range(n):
@@ -38,7 +42,21 @@ for i in range(n):
         c_black = coord_w[0][1] - 1
         coord_w = [(r_white, c_white)]
         coord_b = [(r_black, c_black)]
+        if r_white < 7:
+            counter_white += 1
+        elif r_white == 7:
+            counter_white += 1
+            win_white = True
+            break
+        if r_black > 0:
+            counter_black += 1
+        elif r_black == 0:
+            counter_white += 1
+            win_black = True
+            break
+    else:
+        move(coord_w, coord_b, mapper, matrix, chessboard_matrix)
+        break
 
-
-
-print(move(coord_w, coord_b, mapper, matrix, chessboard_matrix))
+print(counter_black)
+print(counter_white)
