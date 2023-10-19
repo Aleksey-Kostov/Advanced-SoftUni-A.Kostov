@@ -1,8 +1,15 @@
 def start_spring(**kwargs):
+    item_dict = {}
+    for v, k in kwargs.items():
+        if k not in item_dict:
+            item_dict[k] = []
+        item_dict[k].append(v)
     result = ""
-    object_items = sorted(kwargs.items(), key=lambda x: (-len(x[1]), x[0]))
-    for k, v in object_items:
-        result = f"{k}:\n-{sorted(v)}\n"
+    item_dict = sorted(item_dict.items(), key=lambda x: (-len(x[1]), x[0]))
+    for k, v in item_dict:
+        result += (f"{k}:\n"
+        for i in v:
+            result += f"-{sorted(v)}\n"
     return result
 
 
