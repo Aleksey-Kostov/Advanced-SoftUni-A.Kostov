@@ -28,4 +28,3 @@ elif counter == 0:
     print("John failed to reach the top.\nJohn didn't reach any altitude.")
 elif counter == 4:
     print("John has reached all the altitudes and managed to reach the top!")
-
