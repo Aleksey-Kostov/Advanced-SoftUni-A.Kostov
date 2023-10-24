@@ -20,6 +20,3 @@ print(team_lineup(
    ("Toni Kroos", "Germany"),
    ("Cristiano Ronaldo", "Portugal"),
    ("Thomas Muller", "Germany")))
-
-
-
