@@ -33,9 +33,7 @@ command = input()
 while command != "collect the nets":
     r = position_ship[0] + mapper[command][0]
     c = position_ship[1] + mapper[command][1]
-    # matrix[position_ship[0]][position_ship[1]] = "-"
     r, c = is_valid(r, c, n)
-    # matrix[r][c] = "S"
     if matrix[r][c].isdigit():
         fish_caught += int(matrix[r][c])
         matrix[position_ship[0]][position_ship[1]] = "-"
